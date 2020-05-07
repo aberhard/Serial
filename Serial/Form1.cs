@@ -73,11 +73,11 @@ namespace Serial
         public void displaydata_event(object sender, EventArgs e)
         {
             dataTime = DateTime.Now;
-            string time = dataTime.Hour + ":" + dataTime.Minute + ":" + dataTime.Second; //TODO Zeile formatieren
-            textBox2.AppendText(time + "\t" +  in_data + "\n");
+            string time = dataTime.Hour + ":" + dataTime.Minute + ":" + dataTime.Second; //TODO 1 Zeile formatieren
+            textBox2.AppendText(time + "\t" +  in_data + "\n"); // TODO Scrollbar machen
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) 
         {
             serialPort1.Close();
             progressBar1.Value = 0;
