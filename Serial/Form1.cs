@@ -81,7 +81,7 @@ namespace Serial
         public void displaydata_event(object sender, EventArgs e)
         {
             dataTime = DateTime.Now;
-            string pathFile = @"C:\Test\Data\"; //TODO neue Messdatei schreiben
+            string pathFile = @"C:\Test\Data\"; 
             string fileName = txtDateiName.Text + ".txt";
             string zeit = dataTime.ToString("MM/dd/yy HH:mm:ss");
             //string hour = dataTime.Hour.ToString("HH");
@@ -89,7 +89,7 @@ namespace Serial
             //string seconds = dataTime.Second.ToString("ss");
             //string time = hour + ":" + minutes + ":" + seconds; 
             System.IO.File.WriteAllText(pathFile + fileName, textBox2.Text);
-            textBox2.AppendText(zeit + " " +  in_data + "\n"); 
+            textBox2.AppendText(zeit + " " +  in_data + "\n"); //TODO Zeichen sauber einlesen
             textBox2.ScrollToCaret();
         }
 
@@ -174,7 +174,7 @@ namespace Serial
 
                 //    fs.Close();
                 //}
-                //TODO Datei auswählen und automatisch speichern
+                
                 //string pathFile = @"C:\Test\Data\"; //TODO neue Messdatei schreiben
                 
                 //string fileName = "Messdaten.txt";
