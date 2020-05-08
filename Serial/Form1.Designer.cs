@@ -45,6 +45,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.button5 = new System.Windows.Forms.Button();
+            this.txtDateiName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -193,15 +195,34 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 61);
             this.button5.TabIndex = 4;
-            this.button5.Text = "Save Data";
+            this.button5.Text = "Save File Name";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // txtDateiName
+            // 
+            this.txtDateiName.Location = new System.Drawing.Point(608, 405);
+            this.txtDateiName.Name = "txtDateiName";
+            this.txtDateiName.Size = new System.Drawing.Size(100, 20);
+            this.txtDateiName.TabIndex = 6;
+            this.txtDateiName.Text = "Messung_";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(538, 412);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Dateiname :";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 450);
+            this.Controls.Add(this.txtDateiName);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -243,6 +264,8 @@
         private System.Windows.Forms.Label label3;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox txtDateiName;
+        private System.Windows.Forms.Label label4;
     }
 }
 

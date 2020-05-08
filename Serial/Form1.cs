@@ -81,12 +81,14 @@ namespace Serial
         public void displaydata_event(object sender, EventArgs e)
         {
             dataTime = DateTime.Now;
-
+            string pathFile = @"C:\Test\Data\"; //TODO neue Messdatei schreiben
+            string fileName = txtDateiName.Text + ".txt";
             string zeit = dataTime.ToString("MM/dd/yy HH:mm:ss");
             //string hour = dataTime.Hour.ToString("HH");
             //string minutes = dataTime.Minute.ToString("mm");
             //string seconds = dataTime.Second.ToString("ss");
             //string time = hour + ":" + minutes + ":" + seconds; 
+            System.IO.File.WriteAllText(pathFile + fileName, textBox2.Text);
             textBox2.AppendText(zeit + " " +  in_data + "\n"); 
             textBox2.ScrollToCaret();
         }
@@ -134,12 +136,50 @@ namespace Serial
 
         private void button5_Click(object sender, EventArgs e)
         {
+            
+            
             try
             {
-                string pathFile = @"C:\Test\Data\"; //TODO neue Messdatei schreiben
-                string fileName = "Messdaten.txt";
-                System.IO.File.WriteAllText(pathFile + fileName, textBox2.Text);
-                MessageBox.Show("Data has been saved to " + pathFile, "Save File");
+                string pathFile = txtDateiName.Text; 
+                
+                //SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                //saveFileDialog1.InitialDirectory= @"C:\Test\Data\";
+                //saveFileDialog1.FileName = txtDateiName.Text;
+                //saveFileDialog1.Filter = "Textdatei|*.txt|Excel Datei|*.xlsx|Word Datei|*.docx";
+                //saveFileDialog1.Title = "Save an Meassurement Text";
+                //saveFileDialog1.ShowDialog();
+                //// If the file name is not an empty string open it for saving.
+                //if (saveFileDialog1.FileName != "")
+                //{
+                //    // Saves the Image via a FileStream created by the OpenFile method.
+                //    System.IO.FileStream fs =
+                //        (System.IO.FileStream)saveFileDialog1.OpenFile();
+                    
+                //    // NOTE that the FilterIndex property is one-based.
+                //    switch (saveFileDialog1.FilterIndex)
+                //    {
+                //        case 1:
+
+                //            MessageBox.Show("Data has been saved to " + saveFileDialog1.FileName, "Save Text File");
+                //            break;
+
+                //        case 2:
+                //            MessageBox.Show("Data has been saved to " + saveFileDialog1.FileName, "Save Excel File");
+                //            break;
+
+                //        case 3:
+                //            MessageBox.Show("Data has been saved to " + saveFileDialog1.FileName, "Save Word File");
+                //            break;
+                //    }
+
+                //    fs.Close();
+                //}
+                //TODO Datei auswählen und automatisch speichern
+                //string pathFile = @"C:\Test\Data\"; //TODO neue Messdatei schreiben
+                
+                //string fileName = "Messdaten.txt";
+                //System.IO.File.WriteAllText(pathFile + fileName, textBox2.Text);
+                //MessageBox.Show("Data has been saved to " + pathFile, "Save File");
             }
             catch (Exception ex3)
             {
