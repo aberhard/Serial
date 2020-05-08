@@ -64,17 +64,31 @@ namespace Serial
 
         public void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            try
+            {
+                this.Invoke(new EventHandler(displaydata_event));
+                in_data = serialPort1.ReadLine();
+            }
+            catch (Exception ex4)
+            {
 
+                MessageBox.Show("Problem" + ex4.Message);
+            }
             
-            this.Invoke(new EventHandler(displaydata_event));
-            in_data = serialPort1.ReadLine();
+            
         }
 
         public void displaydata_event(object sender, EventArgs e)
         {
             dataTime = DateTime.Now;
-            string time = dataTime.Hour + ":" + dataTime.Minute + ":" + dataTime.Second; //TODO 1 Zeile formatieren
-            textBox2.AppendText(time + "\t" +  in_data + "\n"); // TODO Scrollbar machen
+
+            string zeit = dataTime.ToString("MM/dd/yy HH:mm:ss");
+            //string hour = dataTime.Hour.ToString("HH");
+            //string minutes = dataTime.Minute.ToString("mm");
+            //string seconds = dataTime.Second.ToString("ss");
+            //string time = hour + ":" + minutes + ":" + seconds; 
+            textBox2.AppendText(zeit + " " +  in_data + "\n"); 
+            textBox2.ScrollToCaret();
         }
 
         private void button4_Click(object sender, EventArgs e) 
